@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'otp_screen.dart';
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class OtpScreen extends StatelessWidget {
+  const OtpScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +32,7 @@ class LoginScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(0),
                 child: Row(
                   children: [
-                    Text("Get OTP",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black87),),
+                    Text("+91 7271088606",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black87),),
                   ],
                 ),
               ),
@@ -42,7 +40,7 @@ class LoginScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 0,top: 8,bottom: 8),
                 child: Row(
                   children: [
-                    Text("Enter Your",style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold,color: Colors.indigo),),
+                    Text("Enter The",style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold,color: Colors.indigo),),
                   ],
                 ),
               ),
@@ -50,7 +48,7 @@ class LoginScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(0),
                 child: Row(
                   children: [
-                    Text("Phone Number",style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold,color: Colors.indigo),),
+                    Text("OTP",style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold,color: Colors.indigo),),
                   ],
                 ),
               ),
@@ -58,13 +56,13 @@ class LoginScreen extends StatelessWidget {
               TextField(
                 keyboardType: TextInputType.phone,
                 decoration: InputDecoration(
-                    labelText: "Phone"),
+                    labelText: "OTP"),
               ),
               SizedBox(height: 30,),
               CupertinoButton(
                 onPressed: () {
-                  //todo: Login btn
-                  Get.to(() => OtpScreen());
+                  //todo: otp btn
+                  //Get.to(() => LoginScreen());
                 },
                 padding: EdgeInsets.zero,
                 child: Container(
@@ -75,7 +73,7 @@ class LoginScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20)),
                   alignment: Alignment.center,
                   child: Text(
-                    "Get OTP",
+                    "Go to Home",
                     style: TextStyle(
                         fontSize: 18,
                         color: Colors.black,
@@ -83,8 +81,6 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
-
-
             ],
           ),
         ),
