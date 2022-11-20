@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../dashboard/dashboard.dart';
 class OtpScreen extends StatelessWidget {
   const OtpScreen({Key? key}) : super(key: key);
 
@@ -62,7 +64,7 @@ class OtpScreen extends StatelessWidget {
               CupertinoButton(
                 onPressed: () {
                   //todo: otp btn
-                  //Get.to(() => LoginScreen());
+                  Get.to(() => Dashboard());
                 },
                 padding: EdgeInsets.zero,
                 child: Container(
