@@ -6,6 +6,7 @@ import 'package:tourmeet/screens/dashboard/dashboard.dart';
 import 'package:tourmeet/screens/home/home_screen.dart';
 import 'package:tourmeet/screens/massege/massege_screen.dart';
 import 'package:tourmeet/screens/splesh/first_screen.dart';
+import 'package:tourmeet/screens/users_profile/users_profile_screen.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      //home: UserProfilesScreen(),
       //home:  Dashboard(),
       home: FirstScreen(),
     );

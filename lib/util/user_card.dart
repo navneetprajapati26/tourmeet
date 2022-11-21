@@ -1,5 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../screens/Meeting/meeting_screen.dart';
+import '../screens/massege/massege_screen.dart';
+import '../screens/users_profile/users_profile_screen.dart';
 
 class UserCard extends StatelessWidget {
   String name;
@@ -28,22 +33,27 @@ class UserCard extends StatelessWidget {
         alignment: AlignmentDirectional.bottomStart,
         children: [
           //todo: this is imag. container
-          Container(
-            height: 600,
-            width: width,
-            decoration: BoxDecoration(
-                //color: Colors.cyanAccent,
-                borderRadius: BorderRadius.circular(30)),
-            child: ClipRRect(
-                borderRadius: BorderRadius.circular(30),
-                child: Image.network(
-                  img_url,
-                  fit: BoxFit.cover,
-                )),
+          GestureDetector(
+            onTap: (){
+              Get.to(()=>UserProfilesScreen());
+            },
+            child: Container(
+              height: 600,
+              width: width,
+              decoration: BoxDecoration(
+                  //color: Colors.cyanAccent,
+                  borderRadius: BorderRadius.circular(30)),
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(30),
+                  child: Image.network(
+                    img_url,
+                    fit: BoxFit.cover,
+                  )),
+            ),
           ),
           //todo: this is info. container
           Container(
-            height: 300,
+            height: 200,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
                 gradient: const LinearGradient(
@@ -57,7 +67,9 @@ class UserCard extends StatelessWidget {
                   ],
                   begin: Alignment.bottomRight,
                   //end: Alignment.center
-                )),
+                )
+
+            ),
             child: Padding(
               padding: const EdgeInsets.only(left: 10, right: 10),
               child: Column(
@@ -135,6 +147,7 @@ class UserCard extends StatelessWidget {
                   CupertinoButton(
                     onPressed: () {
                       //todo: Book Meeting btn
+                      //Get.to(()=>MeetingScreen());
                     },
                     child: Container(
                       height: 65,
