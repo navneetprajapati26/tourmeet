@@ -1,11 +1,32 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../util/user_card.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+    String img1 ="https://justifiedgrid.com/wp-content/uploads/life/biking/137646854.jpg";
+    String img2 ="https://images.unsplash.com/photo-1606893995103-a431bce9c219?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHBob3RvfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60";
+    String img3 ="https://plus.unsplash.com/premium_photo-1664701475272-953393050754?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGhvdG98ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60";
+    String img4 ="https://images.unsplash.com/photo-1544465544-1b71aee9dfa3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHBob3RvfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60";
+    String img5 ="https://images.unsplash.com/photo-1482482097755-0b595893ba63?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGhvdG98ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60";
+    String img6 ="https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvdG98ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60";
+    String img7 ="https://images.unsplash.com/photo-1554080353-a576cf803bda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGhvdG98ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60";
+    String img8 ="https://images.unsplash.com/photo-1612230337141-903f3d330055?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDF8fHBob3RvfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60";
+    String img9 ="https://images.unsplash.com/photo-1568175548680-119155ab3e66?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzR8fHBob3RvfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60";
+    String img10 ="https://images.unsplash.com/photo-1550142823-32fc00a5f83f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzJ8fHBob3RvfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60";
+
+
+    List<String> img =[img1,img2,img3,img4,img5,img6,img7,img8,img9,img10];
+    List<String> name =["User 1","User 2","User 3","User 4","User 5","User 6","User 7","User 8","User 9","User 10"];
+    List<String> age =["21","23","22","25","27","24","26","30","28","29"];
+    List<String> busy_after =["1AM","3PM","4PM","11AM","1AM","7AM","8AM","12AM","5AM","1AM"];
+
+
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -26,14 +47,14 @@ class HomeScreen extends StatelessWidget {
         alignment: Alignment.center,
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
-            Container(
+            SizedBox(
               height: 40,
               width: width - 20,
               //color: Colors.cyanAccent,
-              child: Text(
+              child: const Text(
                 "Truemeet",
                 style: TextStyle(
                     fontSize: 35,
@@ -43,155 +64,14 @@ class HomeScreen extends StatelessWidget {
             ),
             Expanded(
               child: ListView.builder(
-                  itemCount: 6,
+                  itemCount: img.length,
                   itemBuilder: (context, index) {
-                    return Container(
-                      height: 600,
-                      width: width,
-                      margin: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30)),
-                      child: Stack(
-                        alignment: AlignmentDirectional.bottomStart,
-                        children: [
-                          //todo: this is imag. container
-                          Container(
-                            height: 600,
-                            width: width,
-                            decoration: BoxDecoration(
-                                //color: Colors.cyanAccent,
-                                borderRadius: BorderRadius.circular(30)),
-                            child: ClipRRect(
-                                child: Image.network(
-                                  "https://justifiedgrid.com/wp-content/uploads/life/biking/137646854.jpg",
-                                  fit: BoxFit.cover,
-                                ),
-                                borderRadius: BorderRadius.circular(30)),
-                          ),
-                          //todo: this is info. container
-                          Container(
-                            height: 300,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                                gradient: LinearGradient(
-                                    colors: [
-                                      Color(0xff332727),
-                                      Color(0x98332727),
-                                      Color(0x80332727),
-                                      Color(0x66332727),
-                                      Color(0x4C332727),
-                                      Color(0xFFFFFF)
+                    return UserCard(
+                      img_url: img[index],
+                      name: name[index],
+                      age: age[index],
+                      busy_after: busy_after[index],
 
-                                    ],
-                                    begin: Alignment.bottomRight,
-                                  //end: Alignment.center
-                                )
-                            ),
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 10, right: 10),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  //todo: Name
-                                  Row(
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20),
-                                        child: Text(
-                                          "Ujala Yadav",
-                                          style: TextStyle(
-                                              fontSize: 33,
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(left: 7),
-                                        child: Text(
-                                          "Age 23",
-                                          style: TextStyle(
-                                              fontSize: 18,
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  //todo: Free and busy
-                                  Row(
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20),
-                                        child: Icon(
-                                          Icons.sunny,
-                                          color: Colors.green,
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(left: 5),
-                                        child: Text(
-                                          "Free Now",
-                                          style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20),
-                                        child: Icon(
-                                          Icons.sunny,
-                                          color: Colors.redAccent,
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(left: 5),
-                                        child: Text(
-                                          "Busy after 4PM",
-                                          style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  //todo: Book Meeting Btn
-                                  CupertinoButton(
-                                    onPressed: () {
-                                      //todo: Book Meeting btn
-                                    },
-                                    child: Container(
-                                      height: 65,
-                                      width: width - 70,
-                                      decoration: BoxDecoration(
-                                          color: Colors.orange,
-                                          borderRadius:
-                                              BorderRadius.circular(20)),
-                                      alignment: Alignment.center,
-                                      child: Text(
-                                        "Book Meeting",
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
                     );
                   }),
             )
