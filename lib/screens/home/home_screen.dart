@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:swipe_cards/swipe_cards.dart';
 
 import '../../util/user_card.dart';
 
@@ -63,8 +65,9 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: ListView.builder(
+              child: PageView.builder(
                   itemCount: img.length,
+                  scrollDirection: Axis.vertical,
                   itemBuilder: (context, index) {
                     return UserCard(
                       img_url: img[index],
