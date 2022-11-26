@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../dashboard/dashboard.dart';
+
 class OtpScreen extends StatelessWidget {
   const OtpScreen({Key? key}) : super(key: key);
 
@@ -29,38 +30,71 @@ class OtpScreen extends StatelessWidget {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              SizedBox(height: 80,),
-              Padding(
-                padding: const EdgeInsets.all(0),
-                child: Row(
-                  children: [
-                    Text("+91 7271088606",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black87),),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 0,top: 8,bottom: 8),
-                child: Row(
-                  children: [
-                    Text("Enter The",style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold,color: Colors.indigo),),
-                  ],
-                ),
+              SizedBox(
+                height: 80,
               ),
               Padding(
                 padding: const EdgeInsets.all(0),
                 child: Row(
-                  children: [
-                    Text("OTP",style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold,color: Colors.indigo),),
+                  children: const [
+                    Text(
+                      "+91 7271088606",
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black87),
+                    ),
                   ],
                 ),
               ),
-              SizedBox(height: 10,),
-              TextField(
+              Padding(
+                padding: const EdgeInsets.only(left: 0, top: 8, bottom: 8),
+                child: Row(
+                  children: const [
+                    Text(
+                      "Enter The",
+                      style: TextStyle(
+                          fontSize: 40,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.indigo),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(0),
+                child: Row(
+                  children: const [
+                    Text(
+                      "OTP",
+                      style: TextStyle(
+                          fontSize: 40,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.indigo),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 25,
+              ),
+
+
+              const TextField(
                 keyboardType: TextInputType.phone,
                 decoration: InputDecoration(
-                    labelText: "OTP"),
+                  labelText: "OTP",
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(),
+                    borderRadius: BorderRadius.all(Radius.circular(20))
+                  ),
+                ),
               ),
-              SizedBox(height: 30,),
+
+
+              SizedBox(
+                height: 30,
+              ),
               CupertinoButton(
                 onPressed: () {
                   //todo: otp btn
@@ -69,7 +103,7 @@ class OtpScreen extends StatelessWidget {
                 padding: EdgeInsets.zero,
                 child: Container(
                   height: 65,
-                  width: width-20,
+                  width: width - 20,
                   decoration: BoxDecoration(
                       color: Colors.orange,
                       borderRadius: BorderRadius.circular(20)),

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 
 import 'otp_screen.dart';
 class LoginScreen extends StatelessWidget {
@@ -54,12 +55,30 @@ class LoginScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 10,),
-              TextField(
-                keyboardType: TextInputType.phone,
-                decoration: InputDecoration(
-                    labelText: "Phone"),
+              SizedBox(height: 25,),
+
+              
+              // TextField(
+              //   keyboardType: TextInputType.phone,
+              //   decoration: InputDecoration(
+              //       labelText: "Phone"),
+              // ),
+
+              IntlPhoneField(
+                decoration: const InputDecoration(
+                  labelText: 'Phone Number',
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(),
+                      borderRadius: BorderRadius.all(Radius.circular(20))
+                  ),
+                ),
+                initialCountryCode: 'IN',
+                onChanged: (phone) {
+                  //todo: commplet number
+                  print(phone.completeNumber);
+                },
               ),
+
               SizedBox(height: 30,),
               CupertinoButton(
                 onPressed: () {

@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:swipe_cards/swipe_cards.dart';
 
 import '../../util/user_card.dart';
 
@@ -21,13 +20,13 @@ class HomeScreen extends StatelessWidget {
     String img8 ="https://images.unsplash.com/photo-1612230337141-903f3d330055?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDF8fHBob3RvfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60";
     String img9 ="https://images.unsplash.com/photo-1568175548680-119155ab3e66?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzR8fHBob3RvfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60";
     String img10 ="https://images.unsplash.com/photo-1550142823-32fc00a5f83f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzJ8fHBob3RvfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60";
-
-
     List<String> img =[img1,img2,img3,img4,img5,img6,img7,img8,img9,img10];
     List<String> name =["User 1","User 2","User 3","User 4","User 5","User 6","User 7","User 8","User 9","User 10"];
     List<String> age =["21","23","22","25","27","24","26","30","28","29"];
     List<String> busy_after =["1AM","3PM","4PM","11AM","1AM","7AM","8AM","12AM","5AM","1AM"];
 
+
+    List<List> user = [img, name, age, busy_after];
 
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
@@ -66,14 +65,16 @@ class HomeScreen extends StatelessWidget {
             ),
             Expanded(
               child: PageView.builder(
-                  itemCount: img.length,
+                  itemCount: name.length,
                   scrollDirection: Axis.vertical,
                   itemBuilder: (context, index) {
                     return UserCard(
-                      img_url: img[index],
-                      name: name[index],
-                      age: age[index],
-                      busy_after: busy_after[index],
+                      //img_count: img.length,
+                     // img_url: user[0][index],
+                     // img_url: user[0][index][index],
+                      name: user[1][index],
+                      age: user[2][index],
+                      busy_after: user[3][index],
 
                     );
                   }),
